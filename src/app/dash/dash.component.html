@@ -1,0 +1,61 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Brent Is Awesome</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Castle Control <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Cat Photos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Naughty Things</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="If Only I Made The Google">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pray</button>
+    </form>
+  </div>
+</nav>
+<div class="container">
+  <div class="row card">
+    <div class="card-block">
+      <h4 class="card-title">A Start</h4>
+      <h6 class="card-subtitle mb-2 text-muted">A dream of controlling Brents sound system with a self made app.</h6>
+      <p class="card-text">Fast integration project to interact with the api found on Github.</p>
+      <p class="card-text">Here is some live data from the API: {{liveDataFromSonos}}</p>
+      <a href="https://github.com/jishi/node-sonos-http-api" class="card-link">Integration Link</a>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-10">
+      <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+        <ngb-panel *ngFor="let item of urlContent">
+          <ng-template ngbPanelTitle>
+            <span>&#9733; {{item.title}} &#9733;</span>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <p>{{item.url}}</p>
+            <p>{{item.infoContent}}</p>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+    </div>
+  </div>
+  <div class="row card">
+    <div class="card-block">
+      <h4 class="card-title">Example 2 Way Data Binding</h4>
+      <input name="starWarsPersonIdFormInput" class="mr-sm-2" type="text" [(ngModel)]="starWarsPersonId"/>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchForNewId()" >Search</button>
+      <p class="card-text">Name: {{starWarsPerson?.name}}</p>
+      <p class="card-text">Home World: {{starWarsPerson?.homeworld}}</p>
+      <p class="card-text">Mass: {{starWarsPerson?.mass}}</p>
+      <p class="card-text">Gender: {{starWarsPerson?.gender}}</p>
+      <a href="https://swapi.co" class="card-link">API Docs</a>
+    </div>
+  </div>
+</div>
